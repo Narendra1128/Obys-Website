@@ -33,36 +33,33 @@ html, body{
 #loader{
     height: 100%;
     width: 100%;
-    padding: 20vh 10vw;
+    padding: 20vh 0vw 20vh 13vw;
     z-index: 999;
     position: fixed;
     background-color: black;
+    /* display: none; */
 }
 .line {
     width: full;
     height: 17vh;
-    gap: 2vw;
+    gap: 3vw;
     display: flex;
     align-items: center;
     overflow: hidden;
 }
 .line1-part1 {
-    width: fit-content;
-    height: fit-content;
+    width: 19%;
+    height: 5vw;
     display: flex;
-    gap: 0.6vw;
+    justify-content: space-between;
 }
 .line1-part1 h5,
 .line1-part1 h6{
     color: rgb(255, 240, 212);
-    font-size: 3vw;
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-size: 4vw;
+    font-weight: 500;
+    letter-spacing: 1px;
     font-family: 'silk serif';
-}
-.line1-part1 h5 {
-    width: 5vw;
-    text-align: right;
 }
 .line h1 {
     font-size: 6.5vw;
@@ -70,7 +67,8 @@ html, body{
     font-weight: 900;
 }
 .line h2 {
-    font-size: 6vw;
+    display: none;
+    font-size: 6.5vw;
     text-transform: uppercase;
     font-weight: 100;
     animation-name: anime;
@@ -80,17 +78,17 @@ html, body{
 @keyframes anime {
     0%{
         font-family: "Plain Light";
-        /* -webkit-text-stroke: 1px white; */
+        -webkit-text-stroke: 1px white;
         color: white;
         opacity: 1;
     }  
-    50%{
+    45%{
         font-family: "Plain Light";
-        /* -webkit-text-stroke: 1px white; */
+        -webkit-text-stroke: 1px white;
         color: white;
         opacity: 1;
     }
-    55%{
+    46%{
         font-family: "silk serif";
         -webkit-text-stroke: 1px white;
         color: transparent;
@@ -102,17 +100,24 @@ html, body{
         color: transparent;
         opacity: 1;
     }
-    100%{
+    90%{
         font-family: "silk serif";
         -webkit-text-stroke: 1px white;
         color: transparent;
         opacity: 1;
     } 
+    100%{
+        font-family: "silk serif";
+        -webkit-text-stroke: 1px white;
+        color: transparent;
+        opacity: 0;
+    }
 }
 #main {
     position: relative;
     background-color: #151515;
     z-index: 99;
+    cursor: none;
 }
 #page1 {
     height: 100vh;
@@ -121,3 +126,74 @@ html, body{
     z-index: 100;
     background-color: rgb(27, 27, 27);
 }
+#nav{
+    display: flex;
+    width: full;
+    height: 20vh;
+    justify-content: space-between;
+    padding: 2.3vw 5.5vw;
+}
+#nav-part2{
+    display: flex;
+    justify-content: space-between;
+    gap: 3vw;
+}
+#nav-part2 h4 {
+    font-size: 0.8vw;
+    font-weight: 500;
+}
+#crsr{
+    border: 2px solid rgb(193, 187, 187);
+    height: 2.5vw;
+    width: 2.5vw;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 999;
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    transition: all ease;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+}
+
+.hero {
+    width: 72%;
+    margin-left: 27%;
+    overflow: hidden;
+    display: flex;
+
+}
+.hero h1 {
+    font-size: 7.2vw;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 7.2vw;
+    position: relative;
+    z-index: 99;
+}
+#hero1::before {
+    content: "01";
+    position: absolute;
+    font-size: 4vw;
+    font-weight: 100;
+    font-family: "silk serif";
+    left: 20%;
+    top: 20%;
+}
+.hero h2 {
+    font-size: 7.2vw;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 7.2vw;
+    border-bottom: 0.5vw solid #fff;
+    padding-bottom: 0.3vw;
+}
+#hero3 h2:hover{
+    -webkit-text-stroke:1px white;
+    color: transparent;
+    font-weight: 400;
+    border-bottom: 0.5vw solid transparent;
+    
+}
+
