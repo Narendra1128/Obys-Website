@@ -7,9 +7,9 @@ var tl = gsap.timeline()
 
 tl.from('.line h1',{
   y: 150,
-  stagger: 0.3,
+  stagger: 0.1,
   opacity: 0,
-  duration: 0.6,
+  duration: 0.3,
 })
 tl.to('.line h2',{
   display: 'initial',
@@ -30,20 +30,20 @@ tl.from('.line1-part1', {
       if (count > 100) {
         clearInterval(interval);
       }
-    }, 25);
+    }, 10);
   },
   });
 
 tl.to("#loader",{
   opacity: 0,
-  duration: 0.2,
-  delay: 2.3,
+  duration: 0.1,
+  delay: 0,
 })
 tl.from("#page1",{
   y: 4500,
   opacity: 0,
   ease: Power4,
-  delay: 0.3,
+  delay: 0.1,
 })
 tl.to("#loader",{
   display: 'none',
