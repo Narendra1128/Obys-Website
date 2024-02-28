@@ -17,6 +17,7 @@
     font-family: "silk serif";
     src: url(./fonts/silkserif-lightitalic-webfont.ttf);
 }
+
 *{
     margin: 0px;
     padding: 0px;
@@ -116,15 +117,22 @@ html, body{
 #main {
     position: relative;
     background-color: #151515;
-    z-index: 99;
-    /* cursor: none; */
+    z-index: 100;
+    cursor: none;
 }
 #page1 {
     height: 100vh;
     width: 100%;
     position: relative;
     z-index: 100;
-    background-color: #151515;
+}
+#flag {
+    height: 25vw;
+    position: absolute;
+    top: 50%;
+    opacity: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 #nav{
     display: flex;
@@ -142,7 +150,14 @@ html, body{
     font-size: 0.8vw;
     font-weight: 500;
 }
-#crsr{
+.mousefollower{
+    /* border: 1px solid white; */
+    color: white;
+    scale: 2;
+    mix-blend-mode: difference;
+    /* display: none; */
+}
+/* #crsr{
     border: 2px solid rgb(193, 187, 187);
     background-color: rebeccapurple;
     height: 2.5vw;
@@ -156,8 +171,7 @@ html, body{
     transition: all ease;
     mix-blend-mode: difference;
     transform: translate(-50%, -50%);
-    display: none;
-}
+    /* display: none; }*/
 
 .hero {
     width: 72%;
@@ -197,12 +211,18 @@ html, body{
     font-weight: 400;
     border-bottom: 0.5vw solid transparent;
 }
+#hero3{
+    z-index: 99;
+    position: relative;
+}
 #page2 {
     height: 100vh;
     width: 100%;
     padding-top: 17vh;
     position: relative;
     background-color: #151515;
+    /* z-index: 100; */
+    /* background-color: rebeccapurple; */
 }
 
 #video-container {
@@ -238,11 +258,140 @@ html, body{
 #video-cursor i {
     font-size: 4vw;
 }
-#page3{
-    height: 100vh;
+#page3 {
+    min-height: 100vh;
     width: 100%;
-    background-color: #151515;
-    position: relative;  
+    position: relative;
+    padding: 17vh 2vw;
+    margin-bottom: 20vh;
+    margin-top: 20vh;
+}
+
+#page3 h1 {
+    font-size: 7vw;
+    text-transform: uppercase;
+    position: relative;
+    margin-left: 28vw;
+}
+
+#page3 h1::before {
+    content: "02";
+    position: absolute;
+    font-size: 3vw;
+    font-weight: 100;
+    font-family: "silk serif";
+    left: -12%;
+    top: 8%;
+}
+#image-div-container {
+    padding: 1vw;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.image-div {
+    height: 42vw;
+    width: 31vw;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin: 1vw;
+    background-color: blue;
+}
+
+.image-div:nth-child(1) {
+    height: 29vw;
+    width: 21vw;
+}
+
+.image-div img {
+    height: 100%;
+    width: 100%;
+       object-fit: cover;
+       object-position: center;
+}
+.page3-circle1 {
+    height: 23vw;
+    width: 23vw;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    margin-top: 18vw;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 10vw;
+    justify-content: center;
+}
+
+.page3-circle1 svg {
+    height: 30%;
+}
+.page3-circle2 {
+    height: 23vw;
+    width: 23vw;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: center;
+}
+
+.page3-circle2 svg {
+    height: 30%;
+    rotate: -45deg;
+}
+.circle-in {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.5s;
+    scale: 0;
+    border-radius: 50%;
+}
+
+.circle-in p {
+    font-size: 0.95vw;
+    color: #000;
+    font-weight: 500;
+    width: 60%;
+    scale: 0;
+    transition: all ease 0.5s;
+    transition-delay: 0.3s;
+    opacity: 0;
+}
+
+.page3-circle1:hover .circle-in {
+    scale: 1;
+}
+
+.page3-circle1:hover p {
+    scale: 1;
+    opacity: 1;
+}
+
+.page3-circle2:hover .circle-in {
+    scale: 1;
+}
+.page3-circle2:hover p {
+    scale: 1;
+    opacity: 1;
+}
+
+#page3 .underline {
+    margin-left: 28vw;
+
 }
 #page4 {
     min-height: 100vh;
@@ -299,6 +448,7 @@ html, body{
     position: relative;
     margin-top: -35vh;
     margin-left: 26vw;
+    display: none;
 }
 .blue-div-elem {
     display: flex;
@@ -373,35 +523,46 @@ html, body{
     }
 }
 #footer {
-    height: 100vh;
+    height: 85vh;
     width: 100%;
+    /* background-color: red; */
     position: relative;
     padding-left: 28vw;
     margin-top: 5vw;
     padding-right: 2vw;
 }
-#footer-text{
+#footer h1 {
+    font-size: 7.2vw;
+    text-transform: uppercase;
+    /* background-color: blue; */
     position: relative;
-    height: 20vh;
-    display: flex;
-    align-items: center;
 }
+
+#footer-text {
+    position: relative;
+    /* background-color: red; */
+}
+
 #footer-text h2 {
     font-size: 7.2vw;
     text-transform: uppercase;
-    font-weight: 800;
-    font-family: "Plain Light";
+    position: absolute;
+    top: -10%;
+    font-weight: 500;
+
+    left: 0;
+    font-family: "silk serif";
+    opacity: 0;
 }
 
-#footer-text h2:hover{
-    font-size: 7.2vw;
-    text-transform: uppercase;
-    -webkit-text-stroke: 1px white;
-    color: transparent;
-    font-weight: 100;
+#footer-text h2 span {
     font-family: "silk serif";
-    transition: all 0.1s ease;
+    opacity: 0;
+    -webkit-text-stroke: 1px #fff;
+    color: transparent;
 }
+
+
 #footer-text::before {
     content: "04";
     position: absolute;
@@ -437,7 +598,11 @@ html, body{
 }
 .underline {
     height: 1px;
-    width: 100%;
     background-color: #fff;
     margin: 3vw 0vw;
+    padding-right: 2vw;
+}
+._canvas_container{
+    z-index: 9999;
+    pointer-events: none;
 }
