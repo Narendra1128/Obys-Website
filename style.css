@@ -21,7 +21,8 @@
 *{
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     color: white;
     font-family: "plain light";
     border: 0px;
@@ -39,20 +40,30 @@ html, body{
     position: fixed;
     background-color: black;
     /* display: none; */
+    cursor: none;
+
 }
 .line {
     width: full;
     height: 17vh;
     gap: 3vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     overflow: hidden;
 }
 .line1-part1 {
     width: 19%;
     height: 5vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 .line1-part1 h5,
 .line1-part1 h6{
@@ -72,9 +83,50 @@ html, body{
     font-size: 6.5vw;
     text-transform: uppercase;
     font-weight: 100;
-    animation-name: anime;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
+    -webkit-animation-name: anime;
+            animation-name: anime;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+@-webkit-keyframes anime {
+    0%{
+        font-family: "Plain Light";
+        -webkit-text-stroke: 1px white;
+        color: white;
+        opacity: 1;
+    }  
+    45%{
+        font-family: "Plain Light";
+        -webkit-text-stroke: 1px white;
+        color: white;
+        opacity: 1;
+    }
+    46%{
+        font-family: "silk serif";
+        -webkit-text-stroke: 1px white;
+        color: transparent;
+        opacity: 0;
+    }
+    60%{
+        font-family: "silk serif";
+        -webkit-text-stroke: 1px white;
+        color: transparent;
+        opacity: 1;
+    }
+    90%{
+        font-family: "silk serif";
+        -webkit-text-stroke: 1px white;
+        color: transparent;
+        opacity: 1;
+    } 
+    100%{
+        font-family: "silk serif";
+        -webkit-text-stroke: 1px white;
+        color: transparent;
+        opacity: 0;
+    }
 }
 @keyframes anime {
     0%{
@@ -132,30 +184,40 @@ html, body{
     top: 50%;
     opacity: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 #nav{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: full;
     height: 20vh;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 2.3vw 5.5vw;
 }
 #nav-part2{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     gap: 3vw;
 }
 #nav-part2 h4 {
     font-size: 0.8vw;
     font-weight: 500;
 }
-.mousefollower{
-    /* border: 1px solid white; */
-    color: white;
+.mousefollower {
+    border: 2px solid #fff;
+    background-color: rgb(255, 255, 255);
     scale: 2;
     mix-blend-mode: difference;
-    /* display: none; */
+    opacity: 0;
 }
 /* #crsr{
     border: 2px solid rgb(193, 187, 187);
@@ -177,6 +239,8 @@ html, body{
     width: 72%;
     margin-left: 27%;
     overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 .hero h1 {
@@ -238,7 +302,8 @@ html, body{
 #video-container video {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     opacity: 0;
 }
 #video-cursor {
@@ -249,10 +314,16 @@ html, body{
     position: absolute;
     top: -15%;
     left: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     z-index: 999;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-left: 5px;
 }
 #video-cursor i {
@@ -286,16 +357,22 @@ html, body{
 #image-div-container {
     padding: 1vw;
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 .image-div {
     height: 42vw;
     width: 31vw;
     position: relative;
     overflow: hidden;
-    flex-shrink: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
     margin: 1vw;
     background-color: blue;
 }
@@ -308,8 +385,10 @@ html, body{
 .image-div img {
     height: 100%;
     width: 100%;
-       object-fit: cover;
-       object-position: center;
+       -o-object-fit: cover;
+          object-fit: cover;
+       -o-object-position: center;
+          object-position: center;
 }
 .page3-circle1 {
     height: 23vw;
@@ -319,11 +398,20 @@ html, body{
     margin-top: 18vw;
     position: relative;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    align-items: center;
-    flex-shrink: 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
     margin-left: 10vw;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .page3-circle1 svg {
@@ -336,10 +424,19 @@ html, body{
     border-radius: 50%;
     position: relative;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .page3-circle2 svg {
@@ -353,9 +450,17 @@ html, body{
     top: 0;
     left: 0;
     background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
     transition: all ease 0.5s;
     scale: 0;
     border-radius: 50%;
@@ -367,8 +472,12 @@ html, body{
     font-weight: 500;
     width: 60%;
     scale: 0;
+    -webkit-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
     transition: all ease 0.5s;
-    transition-delay: 0.3s;
+    -webkit-transition-delay: 0.3s;
+         -o-transition-delay: 0.3s;
+            transition-delay: 0.3s;
     opacity: 0;
 }
 
@@ -431,6 +540,8 @@ html, body{
     margin-bottom: 3vw;
 }
 #page4-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 #page4-flex img{
@@ -451,11 +562,17 @@ html, body{
     display: none;
 }
 .blue-div-elem {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     padding: 1.7vw 0;
     border-bottom: 2px solid #ffffff94;
-    justify-content: spa;
-    justify-content: space-between;
+    -webkit-box-pack: spa;
+        -ms-flex-pack: spa;
+            justify-content: spa;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 .blue-div-elem h4 {
     font-size: 1.4vw;
@@ -485,10 +602,14 @@ html, body{
     text-transform: uppercase;
     color: transparent;
     display: inline-block;
-    animation-name: scrollAnime;
-    animation-duration: 17s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    -webkit-animation-name: scrollAnime;
+            animation-name: scrollAnime;
+    -webkit-animation-duration: 17s;
+            animation-duration: 17s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
 }
 .elem span, .elem2 span {
     font-size: 7vw;
@@ -507,19 +628,37 @@ html, body{
     text-transform: uppercase;
     color: transparent;
     display: inline-block;
-    transform: translateX(calc(-100% - 4px));
-    animation-name: scrollAnime;
-    animation-duration: 17s;
-    animation-timing-function: linear;
+    -webkit-transform: translateX(calc(-100% - 4px));
+        -ms-transform: translateX(calc(-100% - 4px));
+            transform: translateX(calc(-100% - 4px));
+    -webkit-animation-name: scrollAnime;
+            animation-name: scrollAnime;
+    -webkit-animation-duration: 17s;
+            animation-duration: 17s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
     animation-direction: reverse;
-    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+@-webkit-keyframes scrollAnime {
+    from {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(calc(-100% - 4px));
+                transform: translateX(calc(-100% - 4px));
+    }
 }
 @keyframes scrollAnime {
     from {
-        transform: translateX(0);
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
     }
     to {
-        transform: translateX(calc(-100% - 4px));
+        -webkit-transform: translateX(calc(-100% - 4px));
+                transform: translateX(calc(-100% - 4px));
     }
 }
 #footer {
@@ -574,8 +713,12 @@ html, body{
 }
 
 #footer-div{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding-right: 6vw;
 }
 #footer-div h5 {
@@ -584,6 +727,8 @@ html, body{
     width: 10vw;
 }
 #footer-div h6 {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     font-size: 1.9vw;
     margin-bottom: 1.5vw;
@@ -591,9 +736,16 @@ html, body{
     border-bottom: 1px solid white;
 }
 .box{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     width: 15vw;
 }
 .underline {

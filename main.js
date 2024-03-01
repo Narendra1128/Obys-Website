@@ -1,13 +1,13 @@
 var tl = gsap.timeline()
 var element = document.querySelector('.line h2');
 
+var main = document.querySelector('#main')
 var divmain = document.querySelector('#video-container');
 var vidCrsr = document.querySelector('#video-cursor');
 var video = document.querySelector('#video-container video');
 
 var line3 = document.querySelector("#hero3");
 var flag = document.querySelector("#flag");
-
 
 
 function locomotivescroll(){
@@ -44,9 +44,9 @@ ScrollTrigger.refresh();
 function loadingAnimation(){
     tl.from('.line h1',{
       y: 150,
-      stagger: 0.1,
+      stagger: 0.3,
       opacity: 0,
-      duration: 0.3,
+      duration: 0.7,
     })
     tl.to('.line h2',{
       display: 'initial',
@@ -67,20 +67,20 @@ function loadingAnimation(){
           if (count > 100) {
             clearInterval(interval);
           }
-        }, 10);
+        }, 20);
       },
       });
-
+    
     tl.to("#loader",{
-      opacity: 0,
-      duration: 0.1,
-      delay: 0,
-    })
+        delay: 1.0,
+        duration: 2,
+        opacity: '0',
+      })
     tl.from("#page1",{
       y: 4500,
       opacity: 0,
       ease: Power4,
-      delay: 0.1,
+      duration: 0.5,
     })
     tl.to("#loader",{
       display: 'none',
@@ -91,6 +91,8 @@ function loadingAnimation(){
     tl.from('.hero h1, .hero h2', {
       y: 1000,
       opacity: 0,
+      duration: 0.4,
+      stagger: 0.1,
     });
     tl.from("#hero1",{
       opacity: 0,
@@ -104,8 +106,15 @@ function cursorAnimation(){
     // ease: "cubic-bezier(0.23, 1, 0.320, 1)",
     // duration: 1,
   });
+  
+  main.addEventListener('mouseenter', function(){
+    gsap.to('.mousefollower',{
+      opacity: 1,
+    })
+  })
 
   var flag=0;
+  
   divmain.addEventListener("mouseenter", function(){
     gsap.to(".mousefollower",{
       display: 'none',
@@ -151,7 +160,7 @@ function flagAnimation(){
       opacity: '0',
     })
     gsap.to("#flag",{
-      opacity: '1',
+        opacity: '1',
     })
   })
   line3.addEventListener("mousemove",function(dets){
@@ -168,14 +177,14 @@ function flagAnimation(){
       opacity: '0',
     })
   })
-  
 }
 
 function photoEffect(){
   Shery.imageEffect(".image-div", {
     style: 6,
-    debug: true,
+    // debug: true,
     gooey: true,
+    config:{"a":{"value":2,"range":[0,30]},"b":{"value":0.75,"range":[-1,1]},"zindex":{"value":-9996999,"range":[-9999999,9999999]},"aspect":{"value":0.7241195453907675},"gooey":{"value":true},"infiniteGooey":{"value":false},"growSize":{"value":4,"range":[1,15]},"durationOut":{"value":1,"range":[0.1,5]},"durationIn":{"value":1.5,"range":[0.1,5]},"displaceAmount":{"value":0.5},"masker":{"value":true},"maskVal":{"value":1.23,"range":[1,5]},"scrollType":{"value":0},"geoVertex":{"range":[1,64],"value":1},"noEffectGooey":{"value":true},"onMouse":{"value":0},"noise_speed":{"value":0.5,"range":[0,10]},"metaball":{"value":0.33,"range":[0,2]},"discard_threshold":{"value":0.5,"range":[0,1]},"antialias_threshold":{"value":0.01,"range":[0,0.1]},"noise_height":{"value":0.5,"range":[0,2]},"noise_scale":{"value":10,"range":[0,100]}}
   });
 }
 
@@ -216,15 +225,17 @@ function footerAnimation() {
     })
   })
 }
+
 locomotivescroll();
 
 loadingAnimation()
 
 cursorAnimation();
 
-flagAnimation();
-
-photoEffect();
+// photoEffect();
 
 footerAnimation();
+
+flagAnimation();
+
 
