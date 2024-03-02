@@ -124,6 +124,7 @@ function cursorAnimation(){
         left: dets.x- 510,
         top: dets.y - 117,
       })
+      
     })
     divmain.addEventListener("mouseleave", function(dets){
       gsap.to("#video-cursor",{
@@ -134,6 +135,9 @@ function cursorAnimation(){
         display: 'initial',
       })
       video.pause();
+      video.style.opacity = '0'
+      vidCrsr.style.scale = '1',
+      vidCrsr.innerHTML = '<i class="ri-play-mini-fill"></i>'
     })
     divmain.addEventListener("click",function(){
       if(flag==0){

@@ -559,7 +559,6 @@ html, body{
     position: relative;
     margin-top: -35vh;
     margin-left: 26vw;
-    display: none;
 }
 .blue-div-elem {
     display: -webkit-box;
