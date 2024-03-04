@@ -7,7 +7,7 @@ var vidCrsr = document.querySelector('#video-cursor');
 var video = document.querySelector('#video-container video');
 
 var line3 = document.querySelector("#hero3");
-var flag = document.querySelector("#flag");
+var flag=0;
 
 
 function locomotivescroll(){
@@ -113,23 +113,25 @@ function cursorAnimation(){
     })
   })
 
-  var flag=0;
-  
   divmain.addEventListener("mouseenter", function(){
     gsap.to(".mousefollower",{
       display: 'none',
     })
-    divmain.addEventListener("mousemove", function(dets){
+
+    divmain.addEventListener("mousemove", function(event){
+    var rect = divmain.getBoundingClientRect();
       gsap.to("#video-cursor",{
-        left: dets.x- 510,
-        top: dets.y - 117,
+        // left works relative to parent block not body
+        left: event.clientX - rect.left,
+        top: event.clientY - rect.top,
       })
       
     })
     divmain.addEventListener("mouseleave", function(dets){
       gsap.to("#video-cursor",{
-        top: '-15%',
-        left: '70%',
+        top: '0%',
+        left: '85%',
+        transform: 'translate(-50%, -50%)',
       })
       gsap.to(".mousefollower",{
         display: 'initial',
@@ -230,16 +232,21 @@ function footerAnimation() {
   })
 }
 
-locomotivescroll();
+function handleScreenSize() {
+  locomotivescroll();
 
-loadingAnimation()
+  loadingAnimation();
 
-cursorAnimation();
+  flagAnimation();
 
-// photoEffect();
+  cursorAnimation();
 
-footerAnimation();
+  // photoEffect();
 
-flagAnimation();
+  footerAnimation();
+}
+
+handleScreenSize();
+
 
 
